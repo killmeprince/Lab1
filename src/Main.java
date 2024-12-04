@@ -3,29 +3,19 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Student student = new Student("paul", "ЖУР 3-20-01", 2, 3);
-        Students.students_list.add(student);
-        Student student1 = new Student("paul1", "ЖУР 3-21-01", 2, 5);
-        Students.students_list.add(student1);
-        Student student2 = new Student("paul2", "ЖУР 3-230-01", 2, 2);
-        Students.students_list.add(student2);
-        Student student3 = new Student("paul3", "ЖУР 3-205-01", 2, 1);
-        Students.students_list.add(student3);
-        Student student4 = new Student("paul4", "ЖУР 3-201-01", 2, 4);
-        Students.students_list.add(student4);
-        Student student5 = new Student("paul5", "ЖУР 3-202-01", 2, 4);
-        Students.students_list.add(student5);
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Paul", "ЖУР 3-20-01", 2, 3));
+        students.add(new Student("Paul1", "ЖУР 3-21-01", 2, 5));
+        students.add(new Student("Paul2", "ЖУР 3-230-01", 2, 2));
+        students.add(new Student("Paul3", "ЖУР 3-205-01", 2, 1));
+        students.add(new Student("Paul4", "ЖУР 3-201-01", 2, 4));
+        students.add(new Student("Paul5", "ЖУР 3-202-01", 2, 4));
 
-        Students.printStudents(Students.students_list, 2);
-        System.out.println();
-        Students.courseCleaning();
-        Students.printStudents(Students.students_list, 2);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        Students.printStudents(Students.students_list, 3);
+        System.out.println("Студенты на 2 курсе:");
+        StudentsService.printStudents(students, 2);
 
-
-
+        System.out.println("\nПосле очистки и перевода:");
+        StudentsService.courseCleaning(students);
+        StudentsService.printStudents(students, 3);
     }
 }
